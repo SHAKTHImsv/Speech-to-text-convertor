@@ -1,0 +1,148 @@
+/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dark gradient background for the entire body */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gradient (dark blue-gray) */
+    color: white; /* White text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styling for the container with a darker background */
+.container {
+    text-align: center;
+    background-color: #2f3640; /* Dark gray background for the container */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 400px;
+}
+
+/* Heading style */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #f39c12; /* Golden color for the heading to stand out */
+}
+
+/* Lightning effect for the buttons */
+@keyframes lightning {
+    0% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+        transform: scale(1);
+    }
+    25% {
+        box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+        transform: scale(1.1);
+    }
+    50% {
+        box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+        transform: scale(1.1);
+    }
+    75% {
+        box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+        transform: scale(1);
+    }
+}
+
+/* Button style */
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid red; /* Red border */
+    border-radius: 5px;
+    background-color: transparent; /* Transparent background */
+    color: red; /* Red text color */
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+button:disabled {
+    background-color: #7f8c8d; /* Gray background for disabled button */
+    cursor: not-allowed;
+    color: #95a5a6; /* Lighter gray text */
+    border-color: #7f8c8d; /* Same gray border */
+}
+
+button:hover:not(:disabled) {
+    animation: lightning 1s infinite; /* Apply lightning effect on hover */
+    color: white; /* Text turns white on hover */
+    background-color: rgba(255, 0, 0, 0.2); /* Light red background when hovered */
+    box-shadow: 0 0 15px #ff0000; /* Add glowing effect when hovered */
+}
+
+/* Style for the output textarea */
+#output {
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ecf0f1; /* Light gray text for contrast */
+    padding: 10px;
+    border: 1px solid #bdc3c7; /* Light gray border */
+    border-radius: 5px;
+    resize: none;
+    background-color: #34495e; /* Dark background for textarea */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* Style for the Copy button (added lightning effect) */
+#copyBtn {
+    background-color: transparent; /* Transparent background */
+    color: red; /* Red text color */
+    border: 2px solid red; /* Red border */
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#copyBtn:disabled {
+    background-color: #7f8c8d; /* Gray background for disabled button */
+    color: #95a5a6; /* Lighter gray text */
+    border-color: #7f8c8d; /* Same gray border */
+    cursor: not-allowed;
+}
+
+#copyBtn:hover:not(:disabled) {
+    animation: lightning 1s infinite; /* Apply lightning effect to Copy button */
+    color: white; /* Text turns white on hover */
+    background-color: rgba(255, 0, 0, 0.2); /* Light red background when hovered */
+    box-shadow: 0 0 15px #ff0000; /* Add glowing effect when hovered */
+}
+
+#copyBtn:hover {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.2); /* Light red background */
+    box-shadow: 0 0 15px #ff0000; /* Add glowing effect */
+}
+
+/* Optional: Customize the scrollbar for a better look on dark themes */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #95a5a6;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #2c3e50;
+}
