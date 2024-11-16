@@ -32,11 +32,20 @@ if (!SpeechRecognition) {
 
     // Start listening
     startBtn.addEventListener('click', () => {
-        recognition.start();
-        startBtn.disabled = true;
-        stopBtn.disabled = false;
-        copyBtn.disabled = true;
-        output.value = 'Listening...'; // Inform the user that speech is being detected
+        // Check if microphone permissions have been granted
+        navigator.permissions.query({ name: 'microphone' }).then((permissionStatus) => {
+            if (permissionStatus.state === 'granted') {
+                recognition.start();
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                copyBtn.disabled = true;
+                output.value = 'Listening...'; // Inform the user that speech is being detected
+            } else if (permissionStatus.state === 'denied') {
+                alert('Microphone access is denied. Please enable microphone access in your device settings.');
+            } else {
+                alert('Please grant microphone access to use speech recognition.');
+            }
+        });
     });
 
     // Stop listening
